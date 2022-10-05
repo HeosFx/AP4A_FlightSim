@@ -18,12 +18,12 @@
  */
 class Package
 {
-private:
+public:
   int m_value; // Value from the sensor
   std::string m_type; // Data type
   std::string m_unit; // Data unit
 
-public:
+
   Package();
   Package(const Package& dc_p);
   ~Package();
