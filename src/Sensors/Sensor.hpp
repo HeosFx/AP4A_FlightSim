@@ -16,9 +16,6 @@
 class Sensor
 {
 protected:
-  int m_mean;
-  int m_dispertion;
-
   /**
    * @brief Generates pseudo-random sensor's data
    * 
