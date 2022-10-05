@@ -16,19 +16,6 @@
 
 
 /**
- * @brief Enumeration that's used to switch data types in fileWriter and consolWriter
- * 
- */
-enum EType
-{
-  e_temperature,
-  e_humidity,
-  e_pressure,
-  e_light
-};
-
-
-/**
  * @class Server
  * @brief Server receives datas from captors and displays/saves them
  */
