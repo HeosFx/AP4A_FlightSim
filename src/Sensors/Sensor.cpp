@@ -29,6 +29,5 @@ Sensor& Sensor::operator=(const Sensor& sensor_p)
 
 int Sensor::getData()
 {
-  int value = aleaGenVal();
-  return value;
+  return aleaGenVal();
 }
