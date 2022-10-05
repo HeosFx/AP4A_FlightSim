@@ -33,7 +33,7 @@ public:
    * 
    * @return int The value
    */
-  virtual int getData();
+  int getData();
 };
 
 #endif

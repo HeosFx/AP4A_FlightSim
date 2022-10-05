@@ -1,17 +1,17 @@
 /**
- * @file Temperature.hpp
+ * @file Humidity.hpp
  * @author Flavian THEUREL
- * @brief Temperature sensor
+ * @brief Humidity sensor
  * @version 0.1
- * @date 2022-10-02
+ * @date 2022-10-05
  */
 
-#ifndef TEMPERATURE_H
-#define TEMPERATURE_H
+#ifndef HUMIDITY_H
+#define HUMIDITY_H
 
 #include "Sensor.hpp"
 
-class Temperature: public Sensor
+class Humidity: public Sensor
 {
 private:
   /**

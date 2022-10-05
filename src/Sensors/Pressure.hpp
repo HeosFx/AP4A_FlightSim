@@ -1,17 +1,17 @@
 /**
- * @file Temperature.hpp
+ * @file Pressure.hpp
  * @author Flavian THEUREL
- * @brief Temperature sensor
+ * @brief Pressure sensor
  * @version 0.1
- * @date 2022-10-02
+ * @date 2022-10-05
  */
 
-#ifndef TEMPERATURE_H
-#define TEMPERATURE_H
+#ifndef PRESSURE_H
+#define PRESSURE_H
 
 #include "Sensor.hpp"
 
-class Temperature: public Sensor
+class Pressure: public Sensor
 {
 private:
   /**

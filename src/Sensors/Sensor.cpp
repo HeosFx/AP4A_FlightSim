@@ -26,3 +26,9 @@ Sensor& Sensor::operator=(const Sensor& sensor_p)
   m_dispertion = sensor_p.m_dispertion;
   return *this;
 }
+
+int Sensor::getData()
+{
+  int value = aleaGenVal();
+  return value;
+}
