@@ -11,11 +11,11 @@
 #include <iomanip>
 #include <fstream>
 
-Server::Server(): m_dataList(), m_settingDisplay(true), m_settingLog(true)
+Server::Server(): m_settingDisplay(true), m_settingLog(true)
 {
 }
 
-Server::Server(const Server& serv_p): m_dataList(serv_p.m_dataList), m_settingDisplay(serv_p.m_settingDisplay), m_settingLog(serv_p.m_settingLog)
+Server::Server(const Server& serv_p): m_settingDisplay(serv_p.m_settingDisplay), m_settingLog(serv_p.m_settingLog)
 {
 }
 
@@ -23,69 +23,48 @@ Server::~Server(){}
 
 Server& Server::operator=(const Server& serv_p)
 {
-  m_dataList = serv_p.m_dataList;
   m_settingDisplay = serv_p.m_settingDisplay;
   m_settingLog = serv_p.m_settingLog;
   return *this;
 }
 
-void Server::fileWriter(std::string type_p)
+void Server::fileWriter(std::string type_p, std::string unit_p, int value_p)
 {
   std::ofstream m_outfile;
 
   // Open the corresponding log file
   m_outfile.open("../logs/"+type_p+"_log.txt", std::ios_base::app);
   // Print the data from the corresponding sensor
-  if (type_p=="temperature")
-  {
-    m_outfile << m_dataList[0];
-  } else if (type_p=="humidity")
-  {
-    m_outfile << m_dataList[1];
-  } else if (type_p=="pressure")
-  {
-    m_outfile << m_dataList[2];
-  } else if (type_p=="light")
-  {
-    m_outfile << m_dataList[3];
-  }
+  m_outfile << type_p << "\t" << value_p << unit_p << std::endl;
 
   m_outfile.close();
 }
 
-void Server::consolWriter(std::string type_p)
+void Server::consolWriter(std::string type_p, std::string unit_p, int value_p)
 {
   // Print the datas in the console
-  std::cout << m_dataList[0] << "| " << m_dataList[1] << "| " << m_dataList[2] << "| " << m_dataList[3] << std::flush;
+  std::cout << type_p << "\t" << value_p << "\t" << unit_p << std::endl;
 
 }
 
-void Server::receiveData(std::string type_p, int data_p)
+
+void Server::treatment2Package(const Package& package_p)
 {
-  // Assign the incomming data to the correct data object
-  if (type_p=="temperature")
+  int pValue = package_p.m_value;
+  std::string pType = package_p.m_type;
+  std::string pUnit = package_p.m_unit;
+
+  if (m_settingDisplay == true)
   {
-    (m_dataList[0]).m_value=data_p;
-  } else if (type_p=="humidity")
+    consolWriter(pType, pUnit, pValue);
+  }
+  if (m_settingLog == true)
   {
-    (m_dataList[1]).m_value=data_p;
-  } else if (type_p=="pressure")
-  {
-    (m_dataList[2]).m_value=data_p;
-  } else if (type_p=="light")
-  {
-    (m_dataList[3]).m_value=data_p;
+    fileWriter(pType, pUnit, pValue);
   }
 }
 
-void Server::operator>>(std::string type_p)
+void Server::receiveData(const Package& package_p)
 {
-  if (m_settingLog)
-  {
-    fileWriter(type_p);
-  }
-  if (m_settingDisplay)
-  {
-    consolWriter(type_p);
-  }  
+  treatment2Package(package_p);
 }

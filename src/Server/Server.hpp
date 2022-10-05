@@ -11,8 +11,9 @@
 #define SERVER_H
 
 #include <vector>
-#include <map>
-#include "../DataClass/DataClass.hpp"
+#include "../Package/Package.hpp"
+
+// Faire une FIFO avec la liste
 
 
 /**
@@ -22,21 +23,15 @@
 class Server
 {
 private:
-  std::vector<DataClass> m_dataList;  // List of the sensors last data sent
-                                      // 0 - Temperature data
-                                      // 1 - Humidity data
-                                      // 2 - Pressure data
-                                      // 3 - Light data
   bool m_settingLog, m_settingDisplay; // Status of the diplaying / logging methods
 
-
-   /**
+  /**
    * @brief Write in a file the data provided by the sensor
    * 
    * @param type Data type
    * @param data_p Data from the sensor
    */
-  void fileWriter(std::string type_p);
+  void fileWriter(std::string type_p, std::string unit_p, int value_p);
 
   /**
    * @brief Write in the console the data provided by a sensor
@@ -44,7 +39,14 @@ private:
    * @param type Data type
    * @param data_p Data from the sensor
    */
-  void consolWriter(std::string type_p);
+  void consolWriter(std::string type_p, std::string unit_p, int value_p);
+
+  /**
+   * @brief Take the datas from the package
+   * 
+   * @param package_p Package sent by the scheduler
+   */
+  void treatment2Package(const Package& package_p);
 
 public:
   Server();
@@ -52,21 +54,19 @@ public:
   ~Server();
   Server& operator=(const Server& serv_p);
 
-  /**
-   * @brief Do the display / log of the data corresponding to its type (take in account the settings)
-   * 
-   * @param type Data type
-   */
-  void operator>>(std::string type_p);
+  // /**
+  //  * @brief Do the display / log of the data corresponding to its type (take in account the settings)
+  //  * 
+  //  * @param type Data type
+  //  */
+  // void operator>>(std::string type_p);
 
   /**
-   * @brief Get the data from a sensor
+   * @brief Retrieve the data and log them
    * 
-   * @param type_p Data type
-   * @param data_p Data from the sensor
-   * @return true if the data has been correctly sent
+   * @param package_p Package containing the datas from the sensor
    */
-  void receiveData(std::string type_p, int data_p);
+  void receiveData(const Package& package_p);
 };
 
 #endif
