@@ -20,13 +20,6 @@ private:
  * @return int Data generated
  */
   int aleaGenVal();
-public:
-  /**
- * @brief Get the value from the sensor
- * 
- * @return int The value
- */
-  int getData();
 };
 
 #endif

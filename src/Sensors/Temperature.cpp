@@ -16,9 +16,3 @@ int Temperature::aleaGenVal()
   std::normal_distribution<std::mt19937::result_type> normal_dist(23, 3); // Normal distribution - Mean=23, dispertion=3
   return normal_dist(rng);
 }
-
-int Temperature::getData()
-{
-  int value = aleaGenVal();
-  return value;
-}
