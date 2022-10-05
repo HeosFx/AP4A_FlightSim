@@ -11,6 +11,10 @@
 
 #include "Sensor.hpp"
 
+/**
+ * @class Humidity
+ * @brief Type of sensor (humidity)
+ */
 class Humidity: public Sensor
 {
 private:

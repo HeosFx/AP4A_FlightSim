@@ -11,6 +11,10 @@
 
 #include "Sensor.hpp"
 
+/**
+ * @class Pressure
+ * @brief Type of sensor (pressure)
+ */
 class Pressure: public Sensor
 {
 private:

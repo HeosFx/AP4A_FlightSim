@@ -11,6 +11,10 @@
 
 #include "Sensor.hpp"
 
+/**
+ * @class Temperature
+ * @brief Type of sensor (temperature)
+ */
 class Temperature: public Sensor
 {
 private:

@@ -9,6 +9,10 @@
 #ifndef SENSOR_H
 #define SENSOR_H
 
+/**
+ * @class Sensor
+ * @brief The sensor generates data from its environment
+ */
 class Sensor
 {
 protected:
