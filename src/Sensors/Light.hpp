@@ -24,6 +24,10 @@ private:
  * @return int Data generated
  */
   int aleaGenVal();
+
+public:
+  const std::string m_type = "light"; // type of the sensor
+  const std::string m_unit = "L"; // Unit of the value
 };
 
 #endif

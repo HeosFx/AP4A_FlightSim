@@ -24,6 +24,10 @@ private:
  * @return int Data generated
  */
   int aleaGenVal();
+
+public:
+  const std::string m_type = "humidity"; // type of the sensor
+  const std::string m_unit = "%"; // Unit of the value
 };
 
 #endif

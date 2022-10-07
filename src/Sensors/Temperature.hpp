@@ -24,6 +24,10 @@ private:
  * @return int Data generated
  */
   int aleaGenVal();
+
+public:
+  const std::string m_type = "temperature"; // type of the sensor
+  const std::string m_unit = "K"; // Unit of the value
 };
 
 #endif

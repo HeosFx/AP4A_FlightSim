@@ -24,6 +24,10 @@ private:
  * @return int Data generated
  */
   int aleaGenVal();
+
+public:
+  const std::string m_type = "pressure"; // type of the sensor
+  const std::string m_unit = "Pa"; // Unit of the value
 };
 
 #endif
