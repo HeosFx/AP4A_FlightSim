@@ -19,7 +19,7 @@ Package::Package(const Package& dc_p): m_value(dc_p.m_value), m_unit(dc_p.m_unit
   m_type = dc_p.m_type;
 }
 
-Package::Package(std::string type_p, std::string unit_p): m_value(), m_unit(unit_p)
+Package::Package(std::string type_p, std::string unit_p, int value_p): m_value(value_p), m_unit(unit_p)
 {
   m_type = type_p;
 }
@@ -34,9 +34,4 @@ Package& Package::operator=(const Package& dc_p)
   m_unit = dc_p.m_unit;
   m_value = dc_p.m_value;
   return *this;
-}
-
-std::ostream& operator<<(std::ostream& os_p, const Package& dc_p)
-{
-  return os_p << dc_p.m_type << ": " << dc_p.m_value << dc_p.m_unit << "\t";
 }

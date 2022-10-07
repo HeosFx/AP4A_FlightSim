@@ -10,7 +10,6 @@
 #define PACKAGE_H
 
 #include <string>
-#include <ostream>
 
 /**
  * @class Package
@@ -31,26 +30,12 @@ public:
   
 
   /**
-   * @brief Construct a new Package object that will be use while initializing it for the first time
+   * @brief Construct a new Package object
    * 
    * @param type_p 
    * @param unit_p 
    */
-  Package(std::string type_p, std::string unit_p);
-  
-
-  // Friend declaration
-
-
-  // A bouger dans le serveur
-  /**
-   * @brief Organize the datas and informations to print them properly
-   * 
-   * @param os_p Output stream
-   * @param dc_p Data class
-   * @return std::ostream& Output that will be printed
-   */
-  friend std::ostream& operator<<(std::ostream& os_p, const Package& dc_p);
+  Package(std::string type_p, std::string unit_p, int value_p);
 };
 
 #endif
