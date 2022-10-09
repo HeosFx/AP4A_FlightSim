@@ -67,6 +67,12 @@ public:
    * @param package_p Package containing the datas from the sensor
    */
   void receiveData(const Package& package_p);
+
+  /**
+   * @brief Ask the user to enter the parameter of the logging and printing
+   * 
+   */
+  void askParameters();
 };
 
 #endif

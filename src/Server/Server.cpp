@@ -68,3 +68,28 @@ void Server::receiveData(const Package& package_p)
 {
   treatment2Package(package_p);
 }
+
+void Server::askParameters()
+{
+  
+  std::string input;
+  // Ask the user if he want to log the datas
+  std::cout << "Do you want to log the datas? (Y/N)" << std::endl;
+  std::cin >> input;
+  while (input != "Y" && input != "N")
+  {
+    std::cout << "You entered a wrong answer. Do you want to log the datas? (Y/N)" << std::endl;
+    std::cin >> input;
+  }
+  m_settingLog=(input=="Y");
+  
+  // Ask the user if he want to print the datas in the console
+  std::cout << "Do you want to print the datas? (Y/N)" << std::endl;
+  std::cin >> input;
+  while (input != "Y" && input != "N")
+  {
+    std::cout << "You entered a wrong answer. Do you want to print the datas? (Y/N)" << std::endl;
+    std::cin >> input;
+  }
+  m_settingDisplay=(input=="Y");
+}
