@@ -32,10 +32,20 @@ public:
   /**
    * @brief Construct a new Package object
    * 
-   * @param type_p 
-   * @param unit_p 
+   * @param type_p Data type
+   * @param unit_p Unit of the value
+   * @param value_p Value from the sensor
    */
   Package(std::string type_p, std::string unit_p, int value_p);
+
+  /**
+   * @brief Initialize the packagewith given values
+   * 
+   * @param type_p Data type
+   * @param unit_p Unit of the value
+   * @param value_p Value from the sensor
+   */
+  void initializeValue(std::string type_p, std::string unit_p, int value_p);
 };
 
 #endif

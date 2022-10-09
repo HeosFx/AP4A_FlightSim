@@ -35,3 +35,10 @@ Package& Package::operator=(const Package& dc_p)
   m_value = dc_p.m_value;
   return *this;
 }
+
+void Package::initializeValue(std::string type_p, std::string unit_p, int value_p)
+{
+  m_type = type_p;
+  m_unit = unit_p;
+  m_value = value_p;
+}
