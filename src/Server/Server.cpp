@@ -32,8 +32,9 @@ void Server::fileWriter(std::string type_p, std::string unit_p, int value_p)
 {
   std::ofstream m_outfile;
 
+  std::string path = "logs/"+type_p+"_log.txt";
   // Open the corresponding log file
-  m_outfile.open("../logs/"+type_p+"_log.txt", std::ios_base::app);
+  m_outfile.open(path, std::ios::out | std::ios::app);
   // Print the data from the corresponding sensor
   m_outfile << type_p << "\t" << value_p << unit_p << std::endl;
 
