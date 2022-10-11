@@ -27,10 +27,10 @@ private:
   int aleaGenVal();
 
 public:
-  virtual ~Temperature();
-
   const std::string m_type = "temperature"; // type of the sensor
   const std::string m_unit = "K"; // Unit of the value
+
+  virtual ~Temperature();
 };
 
 #endif

@@ -27,10 +27,10 @@ private:
   int aleaGenVal();
 
 public:
-  virtual ~Light();
-
   const std::string m_type = "light"; // type of the sensor
   const std::string m_unit = "L"; // Unit of the value
+
+  virtual ~Light();
 };
 
 #endif

@@ -27,10 +27,10 @@ private:
   int aleaGenVal();
 
 public:
-  virtual ~Humidity();
-
   const std::string m_type = "humidity"; // type of the sensor
   const std::string m_unit = "%"; // Unit of the value
+
+  virtual ~Humidity();
 };
 
 #endif
