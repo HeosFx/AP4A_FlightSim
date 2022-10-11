@@ -10,6 +10,7 @@
 #define HUMIDITY_H
 
 #include "Sensor.hpp"
+#include <string>
 
 /**
  * @class Humidity
@@ -26,6 +27,8 @@ private:
   int aleaGenVal();
 
 public:
+  virtual ~Humidity();
+
   const std::string m_type = "humidity"; // type of the sensor
   const std::string m_unit = "%"; // Unit of the value
 };
