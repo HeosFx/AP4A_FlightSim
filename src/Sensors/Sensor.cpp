@@ -6,15 +6,7 @@
  * @date 2022-10-02
  */
 
-#include "Sensor.hpp";
-
-Sensor::Sensor(): m_mean(), m_dispertion()
-{
-}
-
-Sensor::Sensor(const Sensor& sensor_p): m_mean(sensor_p.m_mean), m_dispertion(sensor_p.m_dispertion)
-{
-}
+#include "Sensor.hpp"
 
 Sensor::~Sensor()
 {
@@ -22,12 +14,15 @@ Sensor::~Sensor()
 
 Sensor& Sensor::operator=(const Sensor& sensor_p)
 {
-  m_mean = sensor_p.m_mean;
-  m_dispertion = sensor_p.m_dispertion;
   return *this;
 }
 
 int Sensor::getData()
 {
   return aleaGenVal();
+}
+
+int Sensor::aleaGenVal()
+{
+  return -1;
 }

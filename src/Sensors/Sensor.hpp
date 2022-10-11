@@ -15,7 +15,7 @@
  */
 class Sensor
 {
-protected:
+private:
   /**
    * @brief Generates pseudo-random sensor's data
    * 
@@ -24,9 +24,7 @@ protected:
   virtual int aleaGenVal();
 
 public:
-  Sensor();
-  Sensor(const Sensor& sensor_p);
-  ~Sensor();
+  virtual ~Sensor();
   Sensor& operator=(const Sensor& sensor_p);
 
   /**
