@@ -31,7 +31,7 @@ private:
    * @param type Data type
    * @param data_p Data from the sensor
    */
-  void fileWriter(std::string type_p, std::string unit_p, int value_p);
+  void fileWrite(std::string type_p, std::string unit_p, int value_p);
 
   /**
    * @brief Write in the console the data provided by a sensor
@@ -39,7 +39,7 @@ private:
    * @param type Data type
    * @param data_p Data from the sensor
    */
-  void consolWriter(std::string type_p, std::string unit_p, int value_p);
+  void consolWrite(std::string type_p, std::string unit_p, int value_p);
 
   /**
    * @brief Take the datas from the package

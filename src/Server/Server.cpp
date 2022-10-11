@@ -28,7 +28,7 @@ Server& Server::operator=(const Server& serv_p)
   return *this;
 }
 
-void Server::fileWriter(std::string type_p, std::string unit_p, int value_p)
+void Server::fileWrite(std::string type_p, std::string unit_p, int value_p)
 {
   std::ofstream m_outfile;
 
@@ -41,7 +41,7 @@ void Server::fileWriter(std::string type_p, std::string unit_p, int value_p)
   m_outfile.close();
 }
 
-void Server::consolWriter(std::string type_p, std::string unit_p, int value_p)
+void Server::consolWrite(std::string type_p, std::string unit_p, int value_p)
 {
   // Print the datas in the console
   std::cout << type_p << "\t" << value_p << "\t" << unit_p << std::endl;
@@ -57,11 +57,11 @@ void Server::treatment2Package(const Package& package_p)
 
   if (m_settingDisplay == true)
   {
-    consolWriter(pType, pUnit, pValue);
+    consolWrite(pType, pUnit, pValue);
   }
   if (m_settingLog == true)
   {
-    fileWriter(pType, pUnit, pValue);
+    fileWrite(pType, pUnit, pValue);
   }
 }
 
