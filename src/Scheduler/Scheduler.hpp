@@ -17,8 +17,6 @@
 #include "../Sensors/Pressure.hpp"
 #include "../Sensors/Light.hpp"
 
-// instancier des packets et les envoyer au serveur
-
 /**
  * @class Scheduler 
  * @brief Class that trasmits data from the sensors to the server at a predetermined time
