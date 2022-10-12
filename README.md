@@ -26,5 +26,5 @@ Une fois lancé, l'utilisateur pourra idiquer le temps de simulation (en seconde
 
 ## 1.4. Crédits
 
-Cette implémentation de la simulation d'un écosystème de capteur à été réalisée dans l'UV AP4A, au cours du semestre d'Automne 2022.
+Cette implémentation de la simulation d'un écosystème de capteur à été réalisée dans l'UV AP4A, au cours du semestre d'Automne 2022. <br>
 Auteur : Flavian THEUREL
