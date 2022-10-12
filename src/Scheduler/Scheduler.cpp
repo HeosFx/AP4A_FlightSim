@@ -6,7 +6,7 @@
  * @date 2022-10-05
  */
 
-#ifdef _WIN32
+#ifdef WIN32
 #include <windows.h>
 #else
 #include <unistd.h>
@@ -54,12 +54,19 @@ void Scheduler::StartSimul(int simulSec_p, unsigned int waitingTime_p)
       m_server.receiveData(pkgBuffer.front());
       pkgBuffer.pop();
     }
-    
-    // Wait WAIT_TIMER
-    Sleep(waitingTime_p);
 
     // Reduce the simulation time remaining
     simulSec_p-=waitingTime_p;
+    
+    // Wait WAIT_TIMER
+    // Switch the OS on which you are and call the correct method
+    #ifdef WIN32
+      // Convertion milliseconds to seconds
+      Sleep(waitingTime_p*1000);
+    #else
+      // Convertion microseconds to seconds
+      usleep(waitingTime_p*1000000);
+    #endif
   }
   
 }
