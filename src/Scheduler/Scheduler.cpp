@@ -59,7 +59,7 @@ void Scheduler::StartSimul(int simulSec_p, unsigned int waitingTime_p)
     simulSec_p-=waitingTime_p;
     
     // Wait WAIT_TIMER
-    // Switch the OS on which you are and call the correct method
+    // Select the OS on which you are and call the correct method
     #ifdef WIN32
       // Convertion milliseconds to seconds
       Sleep(waitingTime_p*1000);
