@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.0.0)
 project(FlightSim VERSION 0.1.0)
 
 add_library(Sensors
-            Sensor.hpp     Sensor.cpp
+            Sensor.hpp     
             Humidity.hpp    Humidity.cpp
             Light.hpp       Light.cpp
             Pressure.hpp    Pressure.cpp

@@ -1,9 +1,9 @@
 /**
  * @file Humidity.cpp
  * @author Flavian THEUREL
- * @brief Temperature sensor
- * @version 0.1
- * @date 2022-10-05
+ * @brief Humidity sensor
+ * @version 0.2
+ * @date 2022-10-19
  */
 
 #include "Humidity.hpp"
@@ -14,11 +14,18 @@
 #define C_MEAN 20
 #define C_DISP 8
 
-Humidity::~Humidity()
+Humidity::Humidity(){}
+
+Humidity::Humidity(const Humidity& sensor_p){}
+
+Humidity::~Humidity(){}
+
+Humidity& Humidity::operator=(const Humidity& sensor_p)
 {
+  return *this;
 }
 
-int Humidity::aleaGenVal()
+float Humidity::aleaGenVal()
 {
   // Initialize the random device
   std::random_device rd;
@@ -41,5 +48,5 @@ int Humidity::aleaGenVal()
 
   // Setup the normal distribution
   std::normal_distribution<float> normal_dist(C_MEAN, C_DISP); // Normal distribution
-  return (int)normal_dist(gen);
+  return normal_dist(gen);
 }

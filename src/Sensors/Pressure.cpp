@@ -2,8 +2,8 @@
  * @file Pressure.cpp
  * @author Flavian THEUREL
  * @brief Pressure sensor
- * @version 0.1
- * @date 2022-10-05
+ * @version 0.2
+ * @date 2022-10-19
  */
 
 #include "Pressure.hpp"
@@ -14,8 +14,15 @@
 #define C_MEAN 79289 // Real value in Pa : 79289.71
 #define C_DISP 3447 // Real value in Pa : 3447.3785
 
-Pressure::~Pressure()
+Pressure::Pressure(){}
+
+Pressure::Pressure(const Pressure& sensor_p){}
+
+Pressure::~Pressure(){}
+
+Pressure& Pressure::operator=(const Pressure& sensor_p)
 {
+  return *this;
 }
 
 int Pressure::aleaGenVal()
