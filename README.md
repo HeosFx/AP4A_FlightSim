@@ -20,9 +20,9 @@ Les capteurs génèrent les informations dimensionnées pour s'approcher au plus
 
 ## 1.3. Utilisation du programme
 
-Il est nécessaire pour le bon fonctionnement du programme d'executer FlightSim.exe depuis le répertoire FlightSim.
+Le ficher exécutable se trouvera dans un dossier nommé Simulation. (Les logs des mesures se trouveront également dans ce dossier si le programme à été lancé depuis celui-ci.)
 
-Une fois lancé, l'utilisateur pourra idiquer le temps de simulation (en secondes) ainsi que la période séparant les mesures (en secondes). Il devra ensuite idiquer s'il veux logger les mesures et/ou les afficher. Il faudra ensuite attendre la fin de l'exécution.
+Le programme fonctionne indéfiniment jusqu'à ce que l'utilisateur entre la lettre "q" dans la console (une latence peut se faire ressentire le temps que tous les threads se synchronisent).
 
 ## 1.4. Crédits
 
