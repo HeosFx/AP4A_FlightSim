@@ -24,15 +24,9 @@ public:
   std::string m_unit; // Data unit
 
 
-  Package<T>(): m_value(), m_unit(), m_type("No Type")
-  {
-  };
-  Package<T>(const Package<T>& dc_p): m_value(dc_p.m_value), m_unit(dc_p.m_unit), m_type(dc_p.m_type);
-  {
-  };
-  virtual ~Package<T>()
-  {
-  };
+  Package<T>(): m_value(), m_unit(), m_type("No Type"){};
+  Package<T>(const Package<T>& dc_p): m_value(dc_p.m_value), m_unit(dc_p.m_unit), m_type(dc_p.m_type){};
+  virtual ~Package<T>(){};
   Package<T>& operator=(const Package<T>& dc_p)
   {
     m_type = dc_p.m_type;
@@ -48,9 +42,7 @@ public:
    * @param unit_p Unit of the value
    * @param value_p Value from the sensor
    */
-  Package<T>(std::string type_p, std::string unit_p, T value_p): m_value(value_p), m_unit(unit_p), m_type(type_p)
-  {
-  };
+  Package<T>(std::string type_p, std::string unit_p, T value_p): m_value(value_p), m_unit(unit_p), m_type(type_p){};
 
   /**
    * @brief Initialize the packagewith given values
@@ -61,9 +53,9 @@ public:
    */
   void initializeValue(std::string type_p, std::string unit_p, T value_p)
   {
-  m_type = type_p;
-  m_unit = unit_p;
-  m_value = value_p;
+    m_type = type_p;
+    m_unit = unit_p;
+    m_value = value_p;
   };
 };
 
