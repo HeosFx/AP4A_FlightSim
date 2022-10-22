@@ -28,7 +28,7 @@ private:
 
 public:
   const std::string m_type = "light"; // type of the sensor
-  const std::string m_unit = "L"; // Unit of the value
+  const std::string m_unit; // Unit of the value
   
   Light();
   Light(const Light& sensor_p);
