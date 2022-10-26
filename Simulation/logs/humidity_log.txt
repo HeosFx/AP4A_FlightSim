@@ -1,0 +1,4 @@
+Wed Oct 26 13:51:15 2022	humidity	20.5187	%
+Wed Oct 26 13:51:19 2022	humidity	19.1164	%
+Wed Oct 26 13:51:23 2022	humidity	17.9316	%
+Wed Oct 26 13:51:27 2022	humidity	11.1829	%

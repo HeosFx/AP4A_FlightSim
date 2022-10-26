@@ -1,0 +1,13 @@
+Wed Oct 26 13:51:15 2022	pressure	78130	Pa
+Wed Oct 26 13:51:16 2022	pressure	79771	Pa
+Wed Oct 26 13:51:17 2022	pressure	78678	Pa
+Wed Oct 26 13:51:18 2022	pressure	77505	Pa
+Wed Oct 26 13:51:19 2022	pressure	80734	Pa
+Wed Oct 26 13:51:20 2022	pressure	78624	Pa
+Wed Oct 26 13:51:21 2022	pressure	80281	Pa
+Wed Oct 26 13:51:22 2022	pressure	82374	Pa
+Wed Oct 26 13:51:23 2022	pressure	83085	Pa
+Wed Oct 26 13:51:24 2022	pressure	81513	Pa
+Wed Oct 26 13:51:25 2022	pressure	82450	Pa
+Wed Oct 26 13:51:26 2022	pressure	78150	Pa
+Wed Oct 26 13:51:27 2022	pressure	81926	Pa
