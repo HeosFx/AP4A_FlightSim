@@ -15,6 +15,8 @@
 /**
  * @class Package
  * @brief Class that regroup a value, data type and unit from a data
+ *
+ * @tparam T Data type of the value
  */
 template <typename T> class Package
 {
@@ -45,7 +47,7 @@ public:
   Package<T>(std::string type_p, std::string unit_p, T value_p): m_value(value_p), m_unit(unit_p), m_type(type_p){};
 
   /**
-   * @brief Initialize the packagewith given values
+   * @brief Initialize the package with given values
    * 
    * @param type_p Data type
    * @param unit_p Unit of the value
