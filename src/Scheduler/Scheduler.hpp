@@ -1,9 +1,9 @@
 /**
  * @file Scheduler.hpp
  * @author Flavian THEUREL
- * @brief Class that trasmits data from the sensors to the server at a predetermined time
+ * @brief Class that transmits data from the sensors to the server
  * @version 0.2
- * @date 2022-10-22
+ * @date 2022-10-26
  */
 
 #ifndef SCHEDULER_H
@@ -39,25 +39,29 @@ public:
 
   /**
    * @brief Run the temperature measurement on a thread
-   * 
+   *
+   * @param pkg_p A float package
    */
   void temperatureTask(Package<float>& pkg_p);
 
   /**
    * @brief Run the humidity measurement on a thread
-   * 
+   *
+   * @param pkg_p A float package
    */
   void humidityTask(Package<float>& pkg_p);
 
   /**
    * @brief Run the light measurement on a thread
-   * 
+   *
+   * @param pkg_p A boolean package
    */
   void lightTask(Package<bool>& pkg_p);
 
   /**
    * @brief Run the pressure measurement on a thread
-   * 
+   *
+   * @param pkg_p A integer package
    */
   void pressureTask(Package<int>& pkg_p);
 
@@ -68,7 +72,7 @@ public:
   void getKBInput();
 
   /**
-   * @brief Do the transmission with a clock
+   * @brief Start the whole simulation
    *
    */
   void StartSimul();
