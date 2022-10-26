@@ -12,7 +12,7 @@
 /**
  * @class Sensor
  * @brief The sensor generates data from its environment
- * T is the type of the data measured by the sensor
+ * @tparam T The type of the data measured by the sensor
  */
 template <typename T> class Sensor
 {

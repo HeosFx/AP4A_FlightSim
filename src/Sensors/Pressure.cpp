@@ -46,7 +46,7 @@ int Pressure::aleaGenVal()
   // Instantiate a Mersenne Twister pseudo-random generator of 32-bit numbers with a state size of 19937 bits
   std::mt19937 gen(seed);
 
-  // Setup the normal distribution
+  // Set up the normal distribution
   std::normal_distribution<float> normal_dist(C_MEAN, C_DISP); // Normal distribution
   return (int)normal_dist(gen);
 }
