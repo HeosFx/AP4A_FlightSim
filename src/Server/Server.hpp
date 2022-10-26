@@ -1,7 +1,7 @@
 /**
  * @file Server.hpp
  * @author Flavian THEUREL
- * @brief The server receives datas from captors and displays/saves them
+ * @brief The server receives data from captors and displays/saves them
  * @version 0.2
  * @date 2022-10-22
  */
@@ -16,6 +16,7 @@
 #include <fstream>
 #include <ctime>
 #include <map>
+#include <mutex>
 #include "../Package/Package.hpp"
 
 /**
@@ -27,6 +28,7 @@ class Server
 private:
   std::map<std::string, int> m_typeMap{{"temperature", 0}, {"humidity", 1}, {"pressure", 2}, {"light",3}}; // Map a data type to an integer
   bool m_settingLog, m_settingDisplay; // Status of the displaying / logging methods
+  std::mutex m_coutMutex; // Mutex used to synchronize the cout
 
   /**
    * @brief Write in a file the data provided by the sensor
@@ -40,6 +42,7 @@ private:
   {
     std::ofstream m_outfile;
 
+    // Generate the file path
     std::string path = "logs/"+type_p+"_log.txt";
     // Open the corresponding log file
     m_outfile.open(path, std::ios::app | std::ios::out);
@@ -71,13 +74,16 @@ private:
     std::string currTime = std::asctime(std::gmtime(&time));
     currTime.pop_back(); // Delete \n from the string
 
+    // Permit the access to the cout to only 1 thread at a time
+    m_coutMutex.lock();
+
     // Print the data in the console
     // Indent the printing depending on the data type
     switch (m_typeMap[type_p])
     {
       case 0: // Temperature case
       {
-        std::cout << std::left << std::setw(33) << std::setfill(' ') << currTime << std::left << std::setw(7) << std::setfill('0') << value_p
+        std::cout << std::left << std::setw(33) << std::setfill(' ') << currTime << std::left << std::setw(7) << std::setfill(' ') << value_p
                   << " " << unit_p << std::endl;
       }
       break;
@@ -115,6 +121,7 @@ private:
       default: // Err case
         std::cout << std::left << std::setw(33) << std::setfill(' ') << currTime << "No value transferred.";
     }
+    m_coutMutex.unlock();
   };
 
   /**
@@ -148,8 +155,8 @@ public:
   /**
    * @brief Retrieve the data and log them
    * 
-   * @param package_p Package containing the datas from the sensor
-   * @tparam T Type of the data (float, int, ...)
+   * @param package_p Package containing the data from the sensor
+   * @tparam T Data value type (float, int, ...)
    */
   template <typename T> void receiveData(const Package<T>& package_p)
   {
