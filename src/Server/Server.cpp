@@ -38,10 +38,12 @@ void Server::askParameters()
   // Ask the user if he wants to print the data in the console
   std::cout << "Do you want to print the data? (y/n)" << std::endl;
   std::cin >> input;
+  
   // Loop until the user enters a correct answer
   while (input != "y" && input != "n")
   {
     std::cout << "You entered a wrong answer. Do you want to print the data? (y/n)" << std::endl;
+
     std::cin >> input;
   }
   m_settingDisplay=(input=="y");
