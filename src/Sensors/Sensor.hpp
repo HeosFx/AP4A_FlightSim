@@ -2,8 +2,8 @@
  * @file Sensor.hpp
  * @author Flavian THEUREL
  * @brief The sensor generates data from its environment
- * @version 0.1
- * @date 2022-10-02
+ * @version 0.2
+ * @date 2022-10-19
  */
 
 #ifndef SENSOR_H
@@ -12,29 +12,33 @@
 /**
  * @class Sensor
  * @brief The sensor generates data from its environment
+ * @tparam T The type of the data measured by the sensor
  */
-class Sensor
+template <typename T> class Sensor
 {
 private:
   /**
    * @brief Generates pseudo-random sensor's data
    * 
-   * @return int Data generated
+   * @return T Data generated
    */
-  virtual int aleaGenVal();
+  virtual T aleaGenVal()=0;
 
 public:
-  // As the class has no attribute, there is no need to add the constructors
-
-  virtual ~Sensor();
-  Sensor& operator=(const Sensor& sensor_p);
+  Sensor<T>(){};
+  Sensor<T>(const Sensor& sensor_p){};
+  virtual ~Sensor<T>(){};
+  Sensor& operator=(const Sensor& sensor_p){};
 
   /**
    * @brief Get the value from the sensor
    * 
-   * @return int The value
+   * @return T The value
    */
-  int getData();
+  T getData()
+  {
+    return aleaGenVal();
+  };
 };
 
 #endif

@@ -1,9 +1,9 @@
 /**
  * @file Scheduler.hpp
  * @author Flavian THEUREL
- * @brief Class that trasmits data from the sensors to the server at a predetermined time
- * @version 0.1
- * @date 2022-10-05
+ * @brief Class that transmits data from the sensors to the server
+ * @version 0.2
+ * @date 2022-10-26
  */
 
 #ifndef SCHEDULER_H
@@ -19,11 +19,12 @@
 
 /**
  * @class Scheduler 
- * @brief Class that trasmits data from the sensors to the server at a predetermined time
+ * @brief Class that transmits data from the sensors to the server at a predetermined time
  */
 class Scheduler
 {
 private:
+  bool m_stopRequired = false; // Want to stop the simulation ?
   Server m_server; // Main server
   Temperature m_temperatureSensor; // Temperature sensor
   Humidity m_humiditySensor; // Humidity sensor
@@ -33,16 +34,48 @@ private:
 public:
   Scheduler();
   Scheduler(const Scheduler& sch_p);
-  ~Scheduler();
+  virtual ~Scheduler();
   Scheduler& operator=(const Scheduler& sch_p);
 
   /**
-   * @brief Do the transmition with a clock
-   * 
-   * @param simulSec_p Total time of the simulation
-   * @param waitingTime_p Time between each data measurement
+   * @brief Run the temperature measurement on a thread
+   *
+   * @param pkg_p A float package
    */
-  void StartSimul(int simulSec_p, unsigned int waitingTime_p);
+  void temperatureTask(Package<float>& pkg_p);
+
+  /**
+   * @brief Run the humidity measurement on a thread
+   *
+   * @param pkg_p A float package
+   */
+  void humidityTask(Package<float>& pkg_p);
+
+  /**
+   * @brief Run the light measurement on a thread
+   *
+   * @param pkg_p A boolean package
+   */
+  void lightTask(Package<bool>& pkg_p);
+
+  /**
+   * @brief Run the pressure measurement on a thread
+   *
+   * @param pkg_p A integer package
+   */
+  void pressureTask(Package<int>& pkg_p);
+
+  /**
+   * @brief Get the input from the console in a separate thread
+   *
+   */
+  void getKBInput();
+
+  /**
+   * @brief Start the whole simulation
+   *
+   */
+  void StartSimul();
 };
 
 #endif

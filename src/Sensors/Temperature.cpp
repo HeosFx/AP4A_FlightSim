@@ -2,8 +2,8 @@
  * @file Temperature.cpp
  * @author Flavian THEUREL
  * @brief Temperature sensor
- * @version 0.1
- * @date 2022-10-02
+ * @version 0.2
+ * @date 2022-10-19
  */
 
 #include "Temperature.hpp"
@@ -14,11 +14,18 @@
 #define C_MEAN 23 //°C
 #define C_DISP 3  //°C
 
-Temperature::~Temperature()
+Temperature::Temperature(){}
+
+Temperature::Temperature(const Temperature& sensor_p){}
+
+Temperature::~Temperature(){}
+
+Temperature& Temperature::operator=(const Temperature& sensor_p)
 {
+  return *this;
 }
 
-int Temperature::aleaGenVal()
+float Temperature::aleaGenVal()
 {
   // Initialize the random device
   std::random_device rd;
@@ -39,7 +46,7 @@ int Temperature::aleaGenVal()
   // Instantiate a Mersenne Twister pseudo-random generator of 32-bit numbers with a state size of 19937 bits
   std::mt19937 gen(seed);
 
-  // Setup the normal distribution
+  // Set up the normal distribution
   std::normal_distribution<float> normal_dist(C_MEAN, C_DISP); // Normal distribution
-  return (int)(normal_dist(gen) + 273.15f);
+  return (normal_dist(gen) + 273.15f);
 }

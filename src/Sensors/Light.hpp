@@ -2,8 +2,8 @@
  * @file Light.hpp
  * @author Flavian THEUREL
  * @brief Light sensor
- * @version 0.1
- * @date 2022-10-05
+ * @version 0.2
+ * @date 2022-10-19
  */
 
 #ifndef LIGHT_H
@@ -16,21 +16,24 @@
  * @class Light
  * @brief Type of sensor (light)
  */
-class Light: public Sensor
+class Light: public Sensor<bool>
 {
 private:
   /**
  * @brief Generates pseudo-random sensor's data
  * 
- * @return int Data generated
+ * @return bool Data generated
  */
-  int aleaGenVal();
+  bool aleaGenVal();
 
 public:
   const std::string m_type = "light"; // type of the sensor
-  const std::string m_unit = "L"; // Unit of the value
-
+  const std::string m_unit; // Unit of the value
+  
+  Light();
+  Light(const Light& sensor_p);
   virtual ~Light();
+  Light& operator=(const Light& sensor_p);
 };
 
 #endif

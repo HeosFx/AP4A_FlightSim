@@ -2,8 +2,8 @@
  * @file Pressure.cpp
  * @author Flavian THEUREL
  * @brief Pressure sensor
- * @version 0.1
- * @date 2022-10-05
+ * @version 0.2
+ * @date 2022-10-19
  */
 
 #include "Pressure.hpp"
@@ -14,8 +14,15 @@
 #define C_MEAN 79289 // Real value in Pa : 79289.71
 #define C_DISP 3447 // Real value in Pa : 3447.3785
 
-Pressure::~Pressure()
+Pressure::Pressure(){}
+
+Pressure::Pressure(const Pressure& sensor_p){}
+
+Pressure::~Pressure(){}
+
+Pressure& Pressure::operator=(const Pressure& sensor_p)
 {
+  return *this;
 }
 
 int Pressure::aleaGenVal()
@@ -39,7 +46,7 @@ int Pressure::aleaGenVal()
   // Instantiate a Mersenne Twister pseudo-random generator of 32-bit numbers with a state size of 19937 bits
   std::mt19937 gen(seed);
 
-  // Setup the normal distribution
+  // Set up the normal distribution
   std::normal_distribution<float> normal_dist(C_MEAN, C_DISP); // Normal distribution
   return (int)normal_dist(gen);
 }
