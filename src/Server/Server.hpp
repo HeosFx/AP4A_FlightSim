@@ -1,7 +1,7 @@
 /**
  * @file Server.hpp
  * @author Flavian THEUREL
- * @brief The server receives datas from captors and displays/saves them
+ * @brief The server receives data from captors and displays/saves them
  * @version 0.2
  * @date 2022-10-02
  */
@@ -13,17 +13,14 @@
 #include <vector>
 #include "../Package/Package.hpp"
 
-// Faire une FIFO avec la liste
-
-
 /**
  * @class Server
- * @brief Server receives datas from captors and displays/saves them
+ * @brief Server receives data from captors and displays/saves them
  */
 class Server
 {
 private:
-  bool m_settingLog, m_settingDisplay; // Status of the diplaying / logging methods
+  bool m_settingLog, m_settingDisplay; // Status of the displaying / logging methods
 
   /**
    * @brief Write in a file the data provided by the sensor
@@ -42,7 +39,7 @@ private:
   void consolWrite(std::string type_p, std::string unit_p, int value_p);
 
   /**
-   * @brief Take the datas from the package
+   * @brief Take the data from the package
    * 
    * @param package_p Package sent by the scheduler
    */
@@ -64,7 +61,7 @@ public:
   /**
    * @brief Retrieve the data and log them
    * 
-   * @param package_p Package containing the datas from the sensor
+   * @param package_p Package containing the data from the sensor
    */
   void receiveData(const Package& package_p);
 

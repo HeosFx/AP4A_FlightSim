@@ -1,7 +1,7 @@
 /**
  * @file Server.cpp
  * @author Flavian THEUREL
- * @brief The server receives datas from captors and displays/saves them
+ * @brief The server receives data from captors and displays/saves them
  * @version 0.2
  * @date 2022-10-02
  */
@@ -43,7 +43,7 @@ void Server::fileWrite(std::string type_p, std::string unit_p, int value_p)
 
 void Server::consolWrite(std::string type_p, std::string unit_p, int value_p)
 {
-  // Print the datas in the console
+  // Print the data in the console
   std::cout << type_p << "\t" << value_p << "\t" << unit_p << std::endl;
 
 }
@@ -74,22 +74,22 @@ void Server::askParameters()
 {
   
   std::string input;
-  // Ask the user if he want to log the datas
-  std::cout << "Do you want to log the datas? (Y/N)" << std::endl;
+  // Ask the user if he wants to log the data
+  std::cout << "Do you want to log the data? (Y/N)" << std::endl;
   std::cin >> input;
   while (input != "Y" && input != "N")
   {
-    std::cout << "You entered a wrong answer. Do you want to log the datas? (Y/N)" << std::endl;
+    std::cout << "You entered a wrong answer. Do you want to log the data? (Y/N)" << std::endl;
     std::cin >> input;
   }
   m_settingLog=(input=="Y");
   
-  // Ask the user if he want to print the datas in the console
-  std::cout << "Do you want to print the datas? (Y/N)" << std::endl;
+  // Ask the user if he wants to print the data in the console
+  std::cout << "Do you want to print the data? (Y/N)" << std::endl;
   std::cin >> input;
   while (input != "Y" && input != "N")
   {
-    std::cout << "You entered a wrong answer. Do you want to print the datas? (Y/N)" << std::endl;
+    std::cout << "You entered a wrong answer. Do you want to print the data? (Y/N)" << std::endl;
     std::cin >> input;
   }
   m_settingDisplay=(input=="Y");
