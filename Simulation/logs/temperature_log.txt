@@ -1,0 +1,8 @@
+Wed Oct 26 14:32:33 2022	temperature	292.753	K
+Wed Oct 26 14:32:35 2022	temperature	292.149	K
+Wed Oct 26 14:33:24 2022	temperature	295.246	K
+Wed Oct 26 14:33:26 2022	temperature	299.098	K
+Wed Oct 26 14:33:28 2022	temperature	296.003	K
+Wed Oct 26 14:33:30 2022	temperature	293.43	K
+Wed Oct 26 14:33:32 2022	temperature	294.757	K
+Wed Oct 26 14:33:34 2022	temperature	294.684	K
